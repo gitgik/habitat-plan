@@ -121,4 +121,23 @@ Save the file.
 
 We use the same values as the ones specified in the original config.json file to keep the initial start up experience the same.
 
-## Run it!
+## Running it in a Docker container!
+Rebuild your package to include the changes made in the previous two steps
+```
+[1][default:/src:0]# build
+```
+
+Run `hab pkg export docker <youroriginname>/myapp` with the origin you chose when setting up habitat (hab setup)
+```
+[2][default:/src:0]# hab pkg export docker myorigin/myapp
+```
+Habitat will proceed to unpack and install all necessary Habitat packages, including a Habitat supervisor, the myapp package, and all of its runtime dependencies.
+
+It will then create an image using the Docker scratch image as the base and build up the rest of the image from there.
+
+Exit the studio.
+
+You can now run your docker image inside a container on your host machine
+```
+$ docker run -it -p 8080:8080 myorigin/myapp
+```

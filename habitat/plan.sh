@@ -12,6 +12,7 @@ pkg_exposes=(port)
 pkg_bin_dirs=(bin)
 pkg_include_dirs=(include)
 pkg_lib_dirs=(lib)
+pkg_dist_dirs=(dist)
 
 
 do_download() {
@@ -32,17 +33,19 @@ do_build() {
 
   # install the npm dev dependencies listed in package.json
   npm install
-
-  # build using npm
-  npm run build
 }
 
 do_install() {
   # copy the node scripts into the root directory of our package using the pkg_prefix variable
   cp package.json ${pkg_prefix}
-  cp lib/server.js ${pkg_prefix}/lib
+  cp -r /.[^.]* ${pkg_prefix}
+  cp -r lib/* ${pkg_prefix}/lib
 
-  # cope the node modules into the package using the pkg_prefix variable
+  # copy the node modules into the package using the pkg_prefix variable
   mkdir -p ${pkg_prefix}/node_modules/
   cp -vr node_modules/* ${pkg_prefix}/node_modules
+
+  # copy the lib containing the app entry point: server.js
+  mkdir -p ${pkg_prefix}/lib/
+  cp -vr lib/* ${pkg_prefix}/lib
 }
