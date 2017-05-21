@@ -32,6 +32,9 @@ do_build() {
 
   # install the npm dev dependencies listed in package.json
   npm install
+
+  # build using npm
+  npm run build
 }
 
 do_install() {
