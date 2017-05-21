@@ -37,7 +37,7 @@ do_build() {
 do_install() {
   # copy the node scripts into the root directory of our package using the pkg_prefix variable
   cp package.json ${pkg_prefix}
-  cp server.js ${pkg_prefix}
+  cp lib/server.js ${pkg_prefix}/lib
 
   # cope the node modules into the package using the pkg_prefix variable
   mkdir -p ${pkg_prefix}/node_modules/
