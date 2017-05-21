@@ -43,5 +43,3 @@ do_install() {
   mkdir -p ${pkg_prefix}/node_modules/
   cp -vr node_modules/* ${pkg_prefix}/node_modules
 }
-
-do_
