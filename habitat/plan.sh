@@ -9,3 +9,6 @@ pkg_exports=(
   [port]=listening_port
 )
 pkg_exposes=(port)
+pkg_bin_dirs=(bin)
+pkg_include_dirs=(include)
+pkg_lib_dirs=(lib)
