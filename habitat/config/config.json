@@ -1,0 +1,4 @@
+{
+  "message": "{{pkg.message}}",
+  "port": "{{pkg.listening_port}}"
+}
