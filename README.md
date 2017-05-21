@@ -81,3 +81,44 @@ Save it.
 
 
 ## Adding the configurations to the plan
+Our app uses config.json as the configuration file.
+
+All we have to do is copy this file in a newly created config directory inside `/src/habitat`
+```
+[7][default:/src/habitat/hooks:0]# cd /src/habitat
+[8][default:/src/habitat:0]# mkdir -p config
+[9][default:/src/habitat:0]# touch config/config.json
+```
+
+Copy the contents of config.json
+```
+{
+    "message": "This is your first habitat service!",
+    "port": "8080"
+}
+```
+Now we replace the values of port and message by using a reference from the TOML file
+```
+// habitat/config/config.json
+{
+  "message": "{{cfg.message}}",
+  "port": "{{cfg.listening_port}}"
+}
+```
+
+TOML file is associated with your configuration file and specifies the default values for your service at start up.
+If you have a templatized configuration file, then you must include a `default.toml` file in your plan folder.
+
+Ok. Open the `default.toml` file and define the message and port values
+```
+# Message of the Day
+message = "This is your first habitat service!"
+
+# The port number that is listening for requests.
+listening_port = 8080
+```
+Save the file.
+
+We use the same values as the ones specified in the original config.json file to keep the initial start up experience the same.
+
+## Run it!
