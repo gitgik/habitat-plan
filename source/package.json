@@ -1,0 +1,19 @@
+{
+    "name": "myapp",
+    "version": "0.2.0",
+    "description": "Node.js app configured and managed by habitat",
+    "author": "First Last <first.last@example.com>",
+    "license": "MIT",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gitgik/habitat-plan.git"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+
+    "dependencies": {
+    	"nconf": "^0.8.4"
+    }
+}
