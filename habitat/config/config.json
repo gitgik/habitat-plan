@@ -1,4 +1,4 @@
 {
-  "message": "{{pkg.message}}",
-  "port": "{{pkg.listening_port}}"
+  "message": "{{cfg.message}}",
+  "port": "{{cfg.listening_port}}"
 }
