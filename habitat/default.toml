@@ -1,5 +1,5 @@
 # Message of the Day
-message = "This is your first habitat service!"
+message="This is your first habitat service!"
 
 # The port number that is listening for requests
-listening_port = 8080
+listening_port=8080

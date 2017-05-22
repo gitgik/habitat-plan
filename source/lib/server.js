@@ -1,7 +1,7 @@
 var http = require('http'),
     nconf = require('nconf');
 
-nconf.file({ file: 'config/config.json' });
+nconf.file({ file: '../config/config.json' });
 
 const port = nconf.get('port');
 
